@@ -53,11 +53,11 @@ THREE.FlyControls = function ( object, domElement ) {
 
 			case 16: /* shift */ this.movementSpeedMultiplier = .1; break;
 
-			case 87: /*W*/ this.moveState.forward = 1; break;
-			case 83: /*S*/ this.moveState.back = 1; break;
+			case 87: /*W*/ this.moveState.forward = .5; break;
+			case 83: /*S*/ this.moveState.back = .5; break;
 
-			case 65: /*A*/ this.moveState.left = 1; break;
-			case 68: /*D*/ this.moveState.right = 1; break;
+			case 65: /*A*/ this.moveState.left = .5; break;
+			case 68: /*D*/ this.moveState.right = .5; break;
 
 			case 82: /*R*/ this.moveState.up = 1; break;
 			case 70: /*F*/ this.moveState.down = 1; break;
@@ -65,11 +65,11 @@ THREE.FlyControls = function ( object, domElement ) {
 			case 38: /*up*/ this.moveState.pitchUp = 1; break;
 			case 40: /*down*/ this.moveState.pitchDown = 1; break;
 
-			case 37: /*left*/ this.moveState.yawLeft = 1; break;
-			case 39: /*right*/ this.moveState.yawRight = 1; break;
+			case 37: /*left*/ this.moveState.yawLeft = .5; break;
+			case 39: /*right*/ this.moveState.yawRight = .5; break;
 
-			case 81: /*Q*/ this.moveState.rollLeft = 1; break;
-			case 69: /*E*/ this.moveState.rollRight = 1; break;
+			//case 81: /*Q*/ this.moveState.rollLeft = 1; break;
+			//case 69: /*E*/ this.moveState.rollRight = 1; break;
 
 		}
 

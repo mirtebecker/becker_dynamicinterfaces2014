@@ -15,6 +15,9 @@
 		
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+			//camera.position.z = 100;
+			//camera.position.y = 30;
+			
 			camera.position.z = 5;
 			
 			controls = new THREE.FlyControls( camera );
@@ -30,27 +33,97 @@
 			wallTexture.wrapT = THREE.RepeatWrapping;
 			wallTexture.repeat.set(2, 2);
 			var wallMaterial = new THREE.MeshBasicMaterial({ map: wallTexture });
-			
-			var box1 = new THREE.Mesh(new THREE.CubeGeometry(2, 2, 4), wallMaterial);
-			box1.position.x = 0;
-			box1.position.y = 0;
-			box1.position.z = -4;
-			box1.rotation.y = Math.PI / 2;
+						
+			var box1 = new THREE.Mesh(new THREE.CubeGeometry(36, 4, 4), wallMaterial);
+			box1.position.x = 30;
+			//box4.position.y = 0;
+			box1.position.z = 40;
+			box1.rotation.y = 0;
 			scene.add(box1);
 			
-			var box2 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 4), wallMaterial);
-			box2.position.x = -4;
-			box2.position.y = 0;
-			box2.position.z = 0;
+			var box2 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 24), wallMaterial);
+			box2.position.x = 10;
+			//box4.position.y = 0;
+			box2.position.z = 30;
 			box2.rotation.y = 0;
 			scene.add(box2);
 			
-			var box3 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 6), wallMaterial);
-			box3.position.x = 5;
-			box3.position.y = 0;
-			box3.position.z = -4;
+			var box3 = new THREE.Mesh(new THREE.CubeGeometry(24, 4, 4), wallMaterial);
+			box3.position.x = 0;
+			//box4.position.y = 0;
+			box3.position.z = 16;
 			box3.rotation.y = 0;
 			scene.add(box3);
+			
+			var box4 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 24), wallMaterial);
+			box4.position.x = -10;
+			//box4.position.y = 0;
+			box4.position.z = 30;
+			box4.rotation.y = 0;
+			scene.add(box4);
+			
+			var box5 = new THREE.Mesh(new THREE.CubeGeometry(24, 4, 4), wallMaterial);
+			box5.position.x = -24;
+			//box4.position.y = 0;
+			box5.position.z = 40;
+			box5.rotation.y = 0;
+			scene.add(box5);
+			
+			var box6 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 12), wallMaterial);
+			box6.position.x = -34;
+			//box4.position.y = 0;
+			box6.position.z = 32;
+			box6.rotation.y = 0;
+			scene.add(box6);
+			
+			var box7 = new THREE.Mesh(new THREE.CubeGeometry(12, 4, 4), wallMaterial);
+			box7.position.x = -30;
+			//box4.position.y = 0;
+			box7.position.z = 24;
+			box7.rotation.y = 0;
+			scene.add(box7);
+			
+			var box8 = new THREE.Mesh(new THREE.CubeGeometry(18, 4, 4), wallMaterial);
+			box8.position.x = -38;
+			//box4.position.y = 0;
+			box8.position.z = 8;
+			box8.rotation.y = 0;
+			scene.add(box8);
+			
+			var box9 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 12), wallMaterial);
+			box9.position.x = -28;
+			//box4.position.y = 0;
+			box9.position.z = 4;
+			box9.rotation.y = 0;
+			scene.add(box9);
+			
+			var box10 = new THREE.Mesh(new THREE.CubeGeometry(20, 4, 4), wallMaterial);
+			box10.position.x = -16;
+			//box4.position.y = 0;
+			box10.position.z = 0;
+			box10.rotation.y = 0;
+			scene.add(box10);
+			
+			var box11 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 20), wallMaterial);
+			box11.position.x = -4;
+			//box4.position.y = 0;
+			box11.position.z = 0;
+			box11.rotation.y = 0;
+			scene.add(box11);
+			
+			var box12 = new THREE.Mesh(new THREE.CubeGeometry(4, 4, 10), wallMaterial);
+			box12.position.x = -24;
+			//box4.position.y = 0;
+			box12.position.z = -6;
+			box12.rotation.y = 0;
+			scene.add(box12);
+			
+			var box13 = new THREE.Mesh(new THREE.CubeGeometry(14, 4, 4), wallMaterial);
+			box13.position.x = -28;
+			//box4.position.y = 0;
+			box13.position.z = -12;
+			box13.rotation.y = 0;
+			scene.add(box13);
 			
 			// ceiling
 			var ceilingTexture = THREE.ImageUtils.loadTexture('img/ceiling.jpg');
@@ -59,20 +132,22 @@
 			ceilingTexture.repeat.set(10, 10); 
 
 			var ceilingMaterial = new THREE.MeshBasicMaterial({ map: ceilingTexture });
-			var ceiling = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000), ceilingMaterial);
-			ceiling.position.y = 20;
+			var ceiling = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), ceilingMaterial);
+			ceiling.position.y = 2;
 			ceiling.rotation.x = Math.PI / 2;
 			scene.add(ceiling);
 			
 			// floor
 			var floorTexture = new THREE.ImageUtils.loadTexture('img/floor.jpg');
+/*
 			floorTexture.wrapS = THREE.RepeatWrapping; 
 			floorTexture.wrapT = THREE.RepeatWrapping;
 			floorTexture.repeat.set(10, 10);
+*/
 			
-			var floorMaterial = new THREE.MeshBasicMaterial({ map: floorTexture });
-			var floor = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000), floorMaterial);
-			floor.position.y = -20;
+			var floorMaterial = new THREE.MeshBasicMaterial({ map: floorTexture, side:THREE.DoubleSide });
+			var floor = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), floorMaterial);
+			floor.position.y = -2;
 			floor.rotation.x = -Math.PI / 2;
 			scene.add(floor);
 			
