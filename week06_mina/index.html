@@ -1,42 +1,37 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Mina</title>
-	<style>
-		#chat{
-			height: 500px;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 
 <body>
-	<div id="chat"></div>
-	<form id="send-message">
-		<input size="35" id="message"></input>
-		<input type="submit"></input>
-	</form>
+	<div id="container">
+	<div id="post">
+		<div id="msg">
+			<span class="text"></span>
+			<span class="countdown">140</span>
+		</div>
+		<div id="button">
+			<span class="tap">Tap</span>
+		</div>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
-	<script>
-		jQuery(function($){
-			var socket = io.connect();
-			var $messageForm = $('#send-message');
-			var $messageBox = $('#message');
-			var $chat = $('#chat');
+		<div style="clear: both;"></div>
 
-			$messageForm.submit(function(e){
-				e.preventDefault();
-				socket.emit("send message", $messageBox.val());
-				$messageBox.val('');
-			});
+		<div id="submit">Send</div>
+		<div id="clear">Clear</div>
+		<span class="err"></span>
 
-			socket.on('new message', function(data){
-				$chat.append(data + "<br/>");
-			});
+		<img src="images/morseout.png">
+	</div>
 
-		});
+	<div id="get">
+		<div id="receivedMsg"></div>
+		<img src="images/morsein.png">
+	</div>
+</div>
 
-	</script>
-
+<script src="script.js"></script>
 </body>
 </html>
